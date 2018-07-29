@@ -14,11 +14,5 @@
     "alwaysStrict": false,
     "module": "commonjs",
     "target": "es2015"
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.d.ts",
-    "./node_modules/@types/**/*.d.ts"
-  ]
+  }
 }
