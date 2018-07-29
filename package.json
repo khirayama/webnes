@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "rm -rf ./bin && NODE_PATH=src ts-node src/index.ts",
-    "dev": "concurrently 'npm run bundle:scripts:watch' 'NODE_PATH=src nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts'",
+    "dev": "concurrently 'npm run bundle:scripts:watch' 'NODE_PATH=src nodemon --watch 'src/index.ts' --exec 'ts-node' src/index.ts'",
     "bundle:scripts": "webpack --mode production",
     "bundle:scripts:watch": "webpack --mode development -w",
     "test": "NODE_PATH=src mocha --timeout 30000 --require espower-typescript/guess test/**/*.ts",
