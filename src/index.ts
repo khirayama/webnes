@@ -15,9 +15,16 @@ const html: string = `
 
   <script defer src="/bundle.js"></script>
   <title>WEBNES</title>
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  </style>
 </head>
 <body>
-  <section class="application"></section>
+  <canvas id="nes" width="256" height="224"></canvas>
 </body>
 </html>
 `;
