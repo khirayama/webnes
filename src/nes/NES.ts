@@ -1,17 +1,9 @@
 // tslint:disable:no-any max-classes-per-file no-unnecessary-class no-suspicious-comment
+import { log } from 'log';
 
 interface IPPUConfig {
   isHorizontalMirror: boolean;
 }
-
-const log: {
-  info(...args: any[]): void;
-} = {
-  info: (...args: any[]): void => {
-    // tslint:disable-next-line:no-console
-    console.log(...args);
-  },
-};
 
 function parse(): {
   characterROM: any;
