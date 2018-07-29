@@ -6,7 +6,6 @@
   - [x] load
   - [x] start
   - [x] frame
-  - [ ] run
 - [ ] parse
 - [ ] IPPUConfig
 - [ ] NesDebugger
