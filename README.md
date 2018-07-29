@@ -5,7 +5,8 @@
 - [ ] NES
   - [x] load
   - [x] start
-  - [ ] frame
+  - [x] frame
+  - [ ] run
 - [ ] parse
 - [ ] IPPUConfig
 - [ ] NesDebugger
@@ -17,11 +18,17 @@
 - [ ] PpuBus
 - [ ] Interrupts
 - [ ] Apu
+  - [ ] run
 - [ ] Ppu
+  - [ ] run
 - [ ] Dma
+  - [ ] runDma
 - [ ] CpuBus
 - [ ] Cpu
+  - [ ] run
   - [ ] reset
+- [ ] CanvasRenderer
+  - [ ] render
 
 ## Refs
 
