@@ -140,6 +140,10 @@ export class NES {
   }
 
   public start(): void {
+    window.requestAnimationFrame(this.frame);
+  }
+
+  private frame(): void {
     // Noop
   }
 }

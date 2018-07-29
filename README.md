@@ -4,7 +4,8 @@
 
 - [ ] NES
   - [x] load
-  - [ ] start
+  - [x] start
+  - [ ] frame
 - [ ] parse
 - [ ] IPPUConfig
 - [ ] NesDebugger
