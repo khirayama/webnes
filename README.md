@@ -7,6 +7,8 @@
   - [x] start
   - [x] frame
 - [ ] parse
+- [x] log
+  - [x] info
 - [ ] IPPUConfig
 - [ ] NesDebugger
   - [ ] setup

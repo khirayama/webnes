@@ -4,6 +4,15 @@ interface IPPUConfig {
   isHorizontalMirror: boolean;
 }
 
+const log: {
+  info(...args: any[]): void;
+} = {
+  info: (...args: any[]): void => {
+    // tslint:disable-next-line:no-console
+    console.log(...args);
+  },
+};
+
 function parse(): {
   characterROM: any;
   programROM: any;
@@ -98,10 +107,11 @@ class Cpu {
 
   public run(): number {
     // TODO
-    return 0;
+    return 1;
   }
 
   public reset(): void {
+    log.info('cpi.reset');
     // TODO
   }
 }
@@ -115,6 +125,8 @@ class CanvasRenderer {
     // TODO
   }
 }
+
+let tmpIntervalId: number | null = null;
 
 export class NES {
   private keypad: Keypad;
@@ -147,6 +159,7 @@ export class NES {
   }
 
   public load(nes: ArrayBuffer): void {
+    log.info('nes.load');
     const { characterROM, programROM, isHorizontalMirror } = parse();
 
     if (process.env.NODE_ENV !== 'production') {
@@ -177,10 +190,14 @@ export class NES {
   }
 
   public start(): void {
-    window.requestAnimationFrame(this.frame);
+    log.info('nes.start');
+    // window.requestAnimationFrame(this.frame);
+    // window.setInterval(this.frame, 1000);
+    this.frame();
   }
 
   private frame(): void {
+    log.info('nes.frame');
     // tslint:disable-next-line:no-constant-condition
     while (true) {
       let cycle: number = 0;
@@ -196,6 +213,9 @@ export class NES {
         break;
       }
     }
-    window.requestAnimationFrame(this.frame);
+    // window.requestAnimationFrame(this.frame);
+    if (tmpIntervalId === null) {
+      tmpIntervalId = window.setInterval(this.frame, (1000 / 60) * 30);
+    }
   }
 }
