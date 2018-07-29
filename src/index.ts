@@ -3,6 +3,7 @@ import * as express from 'express';
 const app: express.App = express();
 
 app.use(express.static('dist'));
+app.use(express.static('src/public'));
 
 // tslint:disable-next-line:no-multiline-string
 const html: string = `
