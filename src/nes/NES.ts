@@ -1,4 +1,4 @@
-// tslint:disable:no-any max-classes-per-file no-unnecessary-class
+// tslint:disable:no-any max-classes-per-file no-unnecessary-class no-suspicious-comment
 
 interface IPPUConfig {
   isHorizontalMirror: boolean;
@@ -18,71 +18,101 @@ function parse(): {
 
 class NesDebugger {
   public setup(programROM: any): void {
-    // Noop
+    // TODO
   }
 }
 
 class Keypad {
-  // Noop
+  // TODO
 }
 
 class Ram {
   constructor(tmp: number) {
-    // Noop
+    // TODO
   }
 
   public write(index: number, characterROM: any): void {
-    // Noop
+    // TODO
   }
 }
 
 class Rom {
   constructor(tmp: number) {
-    // Noop
+    // TODO
   }
 }
 
 class PpuBus {
   constructor(ram: Ram) {
-    // Noop
+    // TODO
   }
 }
 
 class Interrupts {
-  // Noop
+  // TODO
 }
 
 class Apu {
   constructor(interrupts: Interrupts) {
-    // Noop
+    // TODO
+  }
+
+  public run(cycle: number): void {
+    // TODO
   }
 }
 
 class Ppu {
   constructor(ppuBus: PpuBus, interrupts: Interrupts, ppuConfig: IPPUConfig) {
-    // Noop
+    // TODO
+  }
+
+  public run(cycle: number): number {
+    // TODO
+    return cycle;
   }
 }
 
 class Dma {
+  public isDmaProcessing: boolean;
+
   constructor(ram: Ram, ppu: Ppu) {
-    // Noop
+    this.isDmaProcessing = false;
+  }
+
+  public runDma(): void {
+    // TODO
   }
 }
 
 class CpuBus {
   constructor(ram: Ram, programROM: Rom, ppu: Ppu, keypad: Keypad, dma: Dma, apu: Apu) {
-    // Noop
+    // TODO
   }
 }
 
 class Cpu {
   constructor(cpuBus: CpuBus, interrupts: Interrupts) {
-    // Noop
+    // TODO
+  }
+
+  public run(): number {
+    // TODO
+    return 0;
   }
 
   public reset(): void {
-    // Noop
+    // TODO
+  }
+}
+
+class CanvasRenderer {
+  constructor(canvasId: string) {
+    // TODO
+  }
+
+  public render(renderingData: number): void {
+    // TODO
   }
 }
 
@@ -108,6 +138,13 @@ export class NES {
   private cpuBus: CpuBus;
 
   private cpu: Cpu;
+
+  private canvasRenderer: CanvasRenderer;
+
+  constructor() {
+    this.frame = this.frame.bind(this);
+    this.canvasRenderer = new CanvasRenderer('nes');
+  }
 
   public load(nes: ArrayBuffer): void {
     const { characterROM, programROM, isHorizontalMirror } = parse();
@@ -144,6 +181,21 @@ export class NES {
   }
 
   private frame(): void {
-    // Noop
+    // tslint:disable-next-line:no-constant-condition
+    while (true) {
+      let cycle: number = 0;
+      if (this.dma.isDmaProcessing) {
+        this.dma.runDma();
+        cycle = 514;
+      }
+      cycle += this.cpu.run();
+      const renderingData: number = this.ppu.run(cycle * 3);
+      this.apu.run(cycle);
+      if (renderingData) {
+        this.canvasRenderer.render(renderingData);
+        break;
+      }
+    }
+    window.requestAnimationFrame(this.frame);
   }
 }
