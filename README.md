@@ -5,7 +5,6 @@
 - [ ] NES
   - [x] load
   - [ ] start
-  - [ ] reset
 - [ ] parse
 - [ ] IPPUConfig
 - [ ] NesDebugger
