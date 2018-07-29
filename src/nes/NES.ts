@@ -240,7 +240,7 @@ export class NES {
     }
     // window.requestAnimationFrame(this.frame);
     if (tmpIntervalId === null) {
-      tmpIntervalId = window.setInterval(this.frame, (1000 / 60) * 30);
+      tmpIntervalId = window.setInterval(this.frame, (1000 / 60) * 240);
     }
   }
 }
