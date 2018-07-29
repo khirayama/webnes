@@ -17,10 +17,30 @@ function parse(): {
   };
 }
 
+declare var window: any;
+
 class NesDebugger {
-  public setup(programROM: any): void {
+  private debugInfo: ([string] | [string, number] | [string, number, number])[];
+
+  constructor() {
+    log.info('nesDebugger.constructor');
+    window.__disassembled = (): void => {
+      this.displayDisassembled();
+    };
+  }
+
+  public setup(rom: Uint8Array): void {
     log.info('nesDebugger.setup');
     // TODO
+  }
+
+  private displayDisassembled(): void {
+    log.info('nesDebugger.displayDisassembled');
+    this.debugInfo.forEach(
+      (d: [string] | [string, number] | [string, number, number]): void => {
+        log.info(d);
+      },
+    );
   }
 }
 
