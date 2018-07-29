@@ -12,7 +12,7 @@
     "test:watch": "NODE_PATH=src mocha --timeout 30000 --require espower-typescript/guess test/**/*.ts --watch-extensions ts --watch",
     "lint": "tslint --format verbose -c tslint.json 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
     "lint:fix": "tslint --fix --format verbose -c tslint.json 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
-    "format": "prettier --ignore-path .gitignore --config .prettierrc --write 'src/**/!(*.json|*.jpg|*.pug|*.html|*.png|*.webp|*.svg)' 'test/**/!(*.json|*.jpg|*.pug|*.html|*.png|*.webp|*.svg)'",
+    "format": "prettier --ignore-path .gitignore --config .prettierrc --write 'src/**/!(*.nes|*.asm|*.bkg|*.s|*.json|*.jpg|*.pug|*.html|*.png|*.webp|*.svg)' 'test/**/!(*.json|*.jpg|*.pug|*.html|*.png|*.webp|*.svg)'",
     "precommit": "npm run lint:fix && npm run format",
     "check": "npx npm-check-updates"
   },
