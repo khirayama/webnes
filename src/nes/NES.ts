@@ -27,57 +27,73 @@ function parse(): {
 
 class NesDebugger {
   public setup(programROM: any): void {
+    log.info('nesDebugger.setup');
     // TODO
   }
 }
 
 class Keypad {
+  constructor() {
+    log.info('keypad.constructor');
+  }
   // TODO
 }
 
 class Ram {
   constructor(tmp: number) {
+    log.info('ram.constructor');
     // TODO
   }
 
   public write(index: number, characterROM: any): void {
+    log.info('ram.write');
     // TODO
   }
 }
 
 class Rom {
   constructor(tmp: number) {
+    log.info('rom.constructor');
     // TODO
   }
 }
 
 class PpuBus {
   constructor(ram: Ram) {
+    log.info('ppuBus.constructor');
     // TODO
   }
 }
 
 class Interrupts {
-  // TODO
+  constructor() {
+    log.info('interrupts.constructor');
+    // TODO
+  }
 }
 
 class Apu {
   constructor(interrupts: Interrupts) {
+    log.info('apu.constructor');
     // TODO
   }
 
   public run(cycle: number): void {
+    log.info('apu.run');
     // TODO
   }
 }
 
 class Ppu {
   constructor(ppuBus: PpuBus, interrupts: Interrupts, ppuConfig: IPPUConfig) {
+    log.info('ppu.constructor');
     // TODO
   }
 
   public run(cycle: number): number {
     // TODO
+    log.info('ppu.run');
+
     return cycle;
   }
 }
@@ -86,27 +102,33 @@ class Dma {
   public isDmaProcessing: boolean;
 
   constructor(ram: Ram, ppu: Ppu) {
+    log.info('dma.constructor');
     this.isDmaProcessing = false;
   }
 
   public runDma(): void {
     // TODO
+    log.info('dma.runDma');
   }
 }
 
 class CpuBus {
   constructor(ram: Ram, programROM: Rom, ppu: Ppu, keypad: Keypad, dma: Dma, apu: Apu) {
+    log.info('cpuBus.constructor');
     // TODO
   }
 }
 
 class Cpu {
   constructor(cpuBus: CpuBus, interrupts: Interrupts) {
+    log.info('cpu.constructor');
     // TODO
   }
 
   public run(): number {
     // TODO
+    log.info('cpu.run');
+
     return 1;
   }
 
@@ -118,10 +140,12 @@ class Cpu {
 
 class CanvasRenderer {
   constructor(canvasId: string) {
+    log.info('canvasRenderer.constructor');
     // TODO
   }
 
   public render(renderingData: number): void {
+    log.info('canvasRenderer.render');
     // TODO
   }
 }
@@ -154,6 +178,7 @@ export class NES {
   private canvasRenderer: CanvasRenderer;
 
   constructor() {
+    log.info('nes.constructor');
     this.frame = this.frame.bind(this);
     this.canvasRenderer = new CanvasRenderer('nes');
   }
