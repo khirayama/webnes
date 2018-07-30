@@ -16,6 +16,7 @@
       "no-backbone-get-set-outside-model": false,
       "no-implicit-dependencies": false,
       "no-submodule-imports": false,
-      "no-inner-html": false
+      "no-inner-html": false,
+      "no-bitwise": false
     }
 }
