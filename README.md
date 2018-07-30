@@ -11,7 +11,6 @@
 - [x] log
   - [x] call
   - [x] info
-- [ ] IPPUConfig
 - [ ] Keypad
 - [ ] Ram
   - [ ] write
@@ -29,10 +28,15 @@
   - [-] run
   - [-] reset
 - [ ] CanvasRenderer
-  - [-] render
+  - [x] render
+  - [ ] renderBackground
+  - [ ] renderSprites
 - [x] NesDebugger
   - [x] setup
   - [x] displayDisassembled
+
+- [ ] IPPUConfig
+- [ ] IRenderingData
 
 /^(?!.*(constructor|load)).*$/
 

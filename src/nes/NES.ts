@@ -6,6 +6,12 @@ interface IPPUConfig {
   isHorizontalMirror: boolean;
 }
 
+interface IRenderingData {
+  background: any;
+  sprites: any;
+  palette: any;
+}
+
 export const dict: any = {};
 
 function parse(): {
@@ -129,13 +135,38 @@ class Cpu {
 }
 
 class CanvasRenderer {
+  private ctx: CanvasRenderingContext2D;
+
+  private image: ImageData;
+
   constructor(canvasId: string) {
     logger.call('canvasRenderer.constructor');
+    const canvas: HTMLCanvasElement = window.document.querySelector(canvasId);
+    this.ctx = canvas.getContext('2d');
+    if (this.ctx) {
+      this.image = this.ctx.createImageData(256, 224);
+    }
+  }
+
+  public render(data: IRenderingData): void {
+    logger.call('canvasRenderer.render');
+    const { background, sprites, palette } = data;
+    if (background) {
+      this.renderBackground(background, palette);
+    }
+    if (sprites) {
+      this.renderSprites(sprites, palette);
+    }
+    this.ctx.putImageData(this.image, 0, 0);
+  }
+
+  private renderBackground(background: any, palette: any): void {
+    logger.call('canvasRenderer.renderBackground');
     // TODO
   }
 
-  public render(renderingData: number): void {
-    logger.call('canvasRenderer.render');
+  private renderSprites(background: any, palette: any): void {
+    logger.call('canvasRenderer.renderSprites');
     // TODO
   }
 }
