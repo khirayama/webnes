@@ -6,6 +6,8 @@ interface IPPUConfig {
   isHorizontalMirror: boolean;
 }
 
+export const dict: any = {};
+
 function parse(): {
   characterROM: any;
   programROM: any;
