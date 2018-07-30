@@ -12,6 +12,8 @@ export class CanvasRenderer {
 
   private image: ImageData;
 
+  private background: any;
+
   constructor(canvasId: string) {
     logger.call('canvasRenderer.constructor');
     const canvas: HTMLCanvasElement = <HTMLCanvasElement>window.document.getElementById(canvasId);
@@ -35,11 +37,20 @@ export class CanvasRenderer {
 
   private renderBackground(background: any, palette: any): void {
     logger.call('canvasRenderer.renderBackground');
-    // TODO
+    this.background = background;
+    for (let i: number = 0; background.length; i += 1 | 0) {
+      const x: number = (i % 33) * 8;
+      const y: number = ~~(i / 33) * 8;
+      this.renderTile(background[i], x, y, palette);
+    }
   }
 
   private renderSprites(background: any, palette: any): void {
     logger.call('canvasRenderer.renderSprites');
+    // TODO
+  }
+
+  private renderTile(background: any, x: number, y: number, palette: any): void {
     // TODO
   }
 }

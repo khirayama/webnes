@@ -29,8 +29,9 @@
   - [-] reset
 - [ ] CanvasRenderer
   - [x] render
-  - [ ] renderBackground
+  - [x] renderBackground
   - [ ] renderSprites
+  - [ ] renderTile
 - [x] NesDebugger
   - [x] setup
   - [x] displayDisassembled
