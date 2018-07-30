@@ -30,8 +30,9 @@
 - [ ] CanvasRenderer
   - [x] render
   - [x] renderBackground
-  - [ ] renderSprites
+  - [x] renderSprites
   - [ ] renderTile
+  - [ ] renderSprite
 - [x] NesDebugger
   - [x] setup
   - [x] displayDisassembled

@@ -45,12 +45,23 @@ export class CanvasRenderer {
     }
   }
 
-  private renderSprites(background: any, palette: any): void {
+  private renderSprites(sprites: any, palette: any): void {
     logger.call('canvasRenderer.renderSprites');
+    for (const sprite of sprites) {
+      if (sprite) {
+        this.renderSprite(sprite, palette);
+      }
+    }
     // TODO
   }
 
   private renderTile(background: any, x: number, y: number, palette: any): void {
+    logger.call('canvasRenderer.renderTile');
+    // TODO
+  }
+
+  private renderSprite(sprite: any, palette: any): void {
+    logger.call('canvasRenderer.renderSprite');
     // TODO
   }
 }
