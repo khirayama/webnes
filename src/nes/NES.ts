@@ -1,15 +1,10 @@
 // tslint:disable:no-any max-classes-per-file no-unnecessary-class no-suspicious-comment
+import { CanvasRenderer, IRenderingData } from 'CanvasRenderer';
 import { logger } from 'logger';
 import { NesDebugger } from 'NesDebugger';
 
 interface IPPUConfig {
   isHorizontalMirror: boolean;
-}
-
-interface IRenderingData {
-  background: any;
-  sprites: any;
-  palette: any;
 }
 
 export const dict: any = {};
@@ -86,11 +81,15 @@ class Ppu {
     // TODO
   }
 
-  public run(cycle: number): number {
+  public run(cycle: number): IRenderingData {
     // TODO
     logger.call('ppu.run');
 
-    return cycle;
+    return {
+      background: 1,
+      sprites: 1,
+      palette: 1,
+    };
   }
 }
 
@@ -130,43 +129,6 @@ class Cpu {
 
   public reset(): void {
     logger.call('cpi.reset');
-    // TODO
-  }
-}
-
-class CanvasRenderer {
-  private ctx: CanvasRenderingContext2D;
-
-  private image: ImageData;
-
-  constructor(canvasId: string) {
-    logger.call('canvasRenderer.constructor');
-    const canvas: HTMLCanvasElement = window.document.querySelector(canvasId);
-    this.ctx = canvas.getContext('2d');
-    if (this.ctx) {
-      this.image = this.ctx.createImageData(256, 224);
-    }
-  }
-
-  public render(data: IRenderingData): void {
-    logger.call('canvasRenderer.render');
-    const { background, sprites, palette } = data;
-    if (background) {
-      this.renderBackground(background, palette);
-    }
-    if (sprites) {
-      this.renderSprites(sprites, palette);
-    }
-    this.ctx.putImageData(this.image, 0, 0);
-  }
-
-  private renderBackground(background: any, palette: any): void {
-    logger.call('canvasRenderer.renderBackground');
-    // TODO
-  }
-
-  private renderSprites(background: any, palette: any): void {
-    logger.call('canvasRenderer.renderSprites');
     // TODO
   }
 }
@@ -252,7 +214,7 @@ export class NES {
         cycle = 514;
       }
       cycle += this.cpu.run();
-      const renderingData: number = this.ppu.run(cycle * 3);
+      const renderingData: IRenderingData = this.ppu.run(cycle * 3);
       this.apu.run(cycle);
       if (renderingData) {
         this.canvasRenderer.render(renderingData);
