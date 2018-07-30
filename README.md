@@ -6,6 +6,7 @@
   - [x] load
   - [x] start
   - [x] frame
+- [ ] dict
 - [ ] parse
 - [x] log
   - [x] call

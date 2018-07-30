@@ -13,6 +13,8 @@ function parse(): {
   programROM: any;
   isHorizontalMirror: boolean;
 } {
+  logger.call('parse');
+
   return {
     characterROM: '',
     programROM: '',
