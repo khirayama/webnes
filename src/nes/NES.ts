@@ -15,6 +15,7 @@ function parse(): {
   isHorizontalMirror: boolean;
 } {
   logger.call('parse');
+  logger.callEnd();
 
   return {
     characterROM: '',
@@ -26,6 +27,7 @@ function parse(): {
 class Keypad {
   constructor() {
     logger.call('keypad.constructor');
+    logger.callEnd();
   }
   // TODO
 }
@@ -33,11 +35,13 @@ class Keypad {
 class Ram {
   constructor(tmp: number) {
     logger.call('ram.constructor');
+    logger.callEnd();
     // TODO
   }
 
   public write(index: number, characterROM: any): void {
     logger.call('ram.write');
+    logger.callEnd();
     // TODO
   }
 }
@@ -45,6 +49,7 @@ class Ram {
 class Rom {
   constructor(tmp: number) {
     logger.call('rom.constructor');
+    logger.callEnd();
     // TODO
   }
 }
@@ -52,6 +57,7 @@ class Rom {
 class PpuBus {
   constructor(ram: Ram) {
     logger.call('ppuBus.constructor');
+    logger.callEnd();
     // TODO
   }
 }
@@ -59,6 +65,7 @@ class PpuBus {
 class Interrupts {
   constructor() {
     logger.call('interrupts.constructor');
+    logger.callEnd();
     // TODO
   }
 }
@@ -66,11 +73,13 @@ class Interrupts {
 class Apu {
   constructor(interrupts: Interrupts) {
     logger.call('apu.constructor');
+    logger.callEnd();
     // TODO
   }
 
   public run(cycle: number): void {
     logger.call('apu.run');
+    logger.callEnd();
     // TODO
   }
 }
@@ -78,12 +87,14 @@ class Apu {
 class Ppu {
   constructor(ppuBus: PpuBus, interrupts: Interrupts, ppuConfig: IPPUConfig) {
     logger.call('ppu.constructor');
+    logger.callEnd();
     // TODO
   }
 
   public run(cycle: number): IRenderingData {
     // TODO
     logger.call('ppu.run');
+    logger.callEnd();
 
     return {
       background: 1,
@@ -99,17 +110,20 @@ class Dma {
   constructor(ram: Ram, ppu: Ppu) {
     logger.call('dma.constructor');
     this.isDmaProcessing = false;
+    logger.callEnd();
   }
 
   public runDma(): void {
     // TODO
     logger.call('dma.runDma');
+    logger.callEnd();
   }
 }
 
 class CpuBus {
   constructor(ram: Ram, programROM: Rom, ppu: Ppu, keypad: Keypad, dma: Dma, apu: Apu) {
     logger.call('cpuBus.constructor');
+    logger.callEnd();
     // TODO
   }
 }
@@ -117,18 +131,21 @@ class CpuBus {
 class Cpu {
   constructor(cpuBus: CpuBus, interrupts: Interrupts) {
     logger.call('cpu.constructor');
+    logger.callEnd();
     // TODO
   }
 
   public run(): number {
     // TODO
     logger.call('cpu.run');
+    logger.callEnd();
 
     return 1;
   }
 
   public reset(): void {
     logger.call('cpi.reset');
+    logger.callEnd();
     // TODO
   }
 }
@@ -164,6 +181,7 @@ export class NES {
     logger.call('nes.constructor');
     this.frame = this.frame.bind(this);
     this.canvasRenderer = new CanvasRenderer('nes');
+    logger.callEnd();
   }
 
   public load(nes: ArrayBuffer): void {
@@ -195,6 +213,7 @@ export class NES {
     this.cpuBus = new CpuBus(this.ram, this.programROM, this.ppu, this.keypad, this.dma, this.apu);
     this.cpu = new Cpu(this.cpuBus, this.interrupts);
     this.cpu.reset();
+    logger.callEnd();
   }
 
   public start(): void {
@@ -202,6 +221,7 @@ export class NES {
     // window.requestAnimationFrame(this.frame);
     // window.setInterval(this.frame, 1000);
     this.frame();
+    logger.callEnd();
   }
 
   private frame(): void {
@@ -225,5 +245,6 @@ export class NES {
     if (tmpIntervalId === null) {
       tmpIntervalId = window.setInterval(this.frame, (1000 / 60) * 240);
     }
+    logger.callEnd();
   }
 }

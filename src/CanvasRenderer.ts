@@ -21,6 +21,7 @@ export class CanvasRenderer {
     if (this.ctx) {
       this.image = this.ctx.createImageData(256, 224);
     }
+    logger.callEnd();
   }
 
   public render(data: IRenderingData): void {
@@ -33,6 +34,7 @@ export class CanvasRenderer {
       this.renderSprites(sprites, palette);
     }
     this.ctx.putImageData(this.image, 0, 0);
+    logger.callEnd();
   }
 
   private renderBackground(background: any, palette: any): void {
@@ -43,6 +45,7 @@ export class CanvasRenderer {
       const y: number = ~~(i / 33) * 8;
       this.renderTile(background[i], x, y, palette);
     }
+    logger.callEnd();
   }
 
   private renderSprites(sprites: any, palette: any): void {
@@ -53,15 +56,18 @@ export class CanvasRenderer {
       }
     }
     // TODO
+    logger.callEnd();
   }
 
   private renderTile(background: any, x: number, y: number, palette: any): void {
     logger.call('canvasRenderer.renderTile');
     // TODO
+    logger.callEnd();
   }
 
   private renderSprite(sprite: any, palette: any): void {
     logger.call('canvasRenderer.renderSprite');
     // TODO
+    logger.callEnd();
   }
 }
