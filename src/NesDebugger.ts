@@ -1,5 +1,5 @@
 // tslint:disable:no-suspicious-comment
-import { log } from 'log';
+import { logger } from 'logger';
 import { dict } from 'nes/NES';
 
 // tslint:disable-next-line:no-any
@@ -11,14 +11,14 @@ export class NesDebugger {
   private debugInfo: debugInfoType[];
 
   constructor() {
-    log.info('nesDebugger.constructor');
+    logger.call('nesDebugger.constructor');
     window.__disassembled = (): void => {
       this.displayDisassembled();
     };
   }
 
   public setup(rom: Uint8Array): void {
-    log.info('nesDebugger.setup');
+    logger.call('nesDebugger.setup');
     // tslint:disable-next-line:no-any
     const debugInfo: any[] = [];
     let pc: number = 0;
@@ -71,10 +71,10 @@ export class NesDebugger {
   }
 
   private displayDisassembled(): void {
-    log.info('nesDebugger.displayDisassembled');
+    logger.call('nesDebugger.displayDisassembled');
     this.debugInfo.forEach(
       (d: debugInfoType): void => {
-        log.info(d);
+        logger.call(d);
       },
     );
   }

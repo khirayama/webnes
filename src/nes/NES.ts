@@ -1,5 +1,5 @@
 // tslint:disable:no-any max-classes-per-file no-unnecessary-class no-suspicious-comment
-import { log } from 'log';
+import { logger } from 'logger';
 import { NesDebugger } from 'NesDebugger';
 
 interface IPPUConfig {
@@ -22,65 +22,65 @@ function parse(): {
 
 class Keypad {
   constructor() {
-    log.info('keypad.constructor');
+    logger.call('keypad.constructor');
   }
   // TODO
 }
 
 class Ram {
   constructor(tmp: number) {
-    log.info('ram.constructor');
+    logger.call('ram.constructor');
     // TODO
   }
 
   public write(index: number, characterROM: any): void {
-    log.info('ram.write');
+    logger.call('ram.write');
     // TODO
   }
 }
 
 class Rom {
   constructor(tmp: number) {
-    log.info('rom.constructor');
+    logger.call('rom.constructor');
     // TODO
   }
 }
 
 class PpuBus {
   constructor(ram: Ram) {
-    log.info('ppuBus.constructor');
+    logger.call('ppuBus.constructor');
     // TODO
   }
 }
 
 class Interrupts {
   constructor() {
-    log.info('interrupts.constructor');
+    logger.call('interrupts.constructor');
     // TODO
   }
 }
 
 class Apu {
   constructor(interrupts: Interrupts) {
-    log.info('apu.constructor');
+    logger.call('apu.constructor');
     // TODO
   }
 
   public run(cycle: number): void {
-    log.info('apu.run');
+    logger.call('apu.run');
     // TODO
   }
 }
 
 class Ppu {
   constructor(ppuBus: PpuBus, interrupts: Interrupts, ppuConfig: IPPUConfig) {
-    log.info('ppu.constructor');
+    logger.call('ppu.constructor');
     // TODO
   }
 
   public run(cycle: number): number {
     // TODO
-    log.info('ppu.run');
+    logger.call('ppu.run');
 
     return cycle;
   }
@@ -90,50 +90,50 @@ class Dma {
   public isDmaProcessing: boolean;
 
   constructor(ram: Ram, ppu: Ppu) {
-    log.info('dma.constructor');
+    logger.call('dma.constructor');
     this.isDmaProcessing = false;
   }
 
   public runDma(): void {
     // TODO
-    log.info('dma.runDma');
+    logger.call('dma.runDma');
   }
 }
 
 class CpuBus {
   constructor(ram: Ram, programROM: Rom, ppu: Ppu, keypad: Keypad, dma: Dma, apu: Apu) {
-    log.info('cpuBus.constructor');
+    logger.call('cpuBus.constructor');
     // TODO
   }
 }
 
 class Cpu {
   constructor(cpuBus: CpuBus, interrupts: Interrupts) {
-    log.info('cpu.constructor');
+    logger.call('cpu.constructor');
     // TODO
   }
 
   public run(): number {
     // TODO
-    log.info('cpu.run');
+    logger.call('cpu.run');
 
     return 1;
   }
 
   public reset(): void {
-    log.info('cpi.reset');
+    logger.call('cpi.reset');
     // TODO
   }
 }
 
 class CanvasRenderer {
   constructor(canvasId: string) {
-    log.info('canvasRenderer.constructor');
+    logger.call('canvasRenderer.constructor');
     // TODO
   }
 
   public render(renderingData: number): void {
-    log.info('canvasRenderer.render');
+    logger.call('canvasRenderer.render');
     // TODO
   }
 }
@@ -166,13 +166,13 @@ export class NES {
   private canvasRenderer: CanvasRenderer;
 
   constructor() {
-    log.info('nes.constructor');
+    logger.call('nes.constructor');
     this.frame = this.frame.bind(this);
     this.canvasRenderer = new CanvasRenderer('nes');
   }
 
   public load(nes: ArrayBuffer): void {
-    log.info('nes.load');
+    logger.call('nes.load');
     const { characterROM, programROM, isHorizontalMirror } = parse();
 
     if (process.env.NODE_ENV !== 'production') {
@@ -203,14 +203,14 @@ export class NES {
   }
 
   public start(): void {
-    log.info('nes.start');
+    logger.call('nes.start');
     // window.requestAnimationFrame(this.frame);
     // window.setInterval(this.frame, 1000);
     this.frame();
   }
 
   private frame(): void {
-    log.info('nes.frame');
+    logger.call('nes.frame');
     // tslint:disable-next-line:no-constant-condition
     while (true) {
       let cycle: number = 0;
