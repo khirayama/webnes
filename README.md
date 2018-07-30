@@ -8,10 +8,9 @@
   - [x] frame
 - [ ] parse
 - [x] log
+  - [x] call
   - [x] info
 - [ ] IPPUConfig
-- [ ] NesDebugger
-  - [ ] setup
 - [ ] Keypad
 - [ ] Ram
   - [ ] write
@@ -19,17 +18,22 @@
 - [ ] PpuBus
 - [ ] Interrupts
 - [ ] Apu
-  - [ ] run
+  - [-] run
 - [ ] Ppu
-  - [ ] run
+  - [-] run
 - [ ] Dma
-  - [ ] runDma
+  - [-] runDma
 - [ ] CpuBus
 - [ ] Cpu
-  - [ ] run
-  - [ ] reset
+  - [-] run
+  - [-] reset
 - [ ] CanvasRenderer
-  - [ ] render
+  - [-] render
+- [x] NesDebugger
+  - [x] setup
+  - [x] displayDisassembled
+
+/^(?!.*(constructor|load)).*$/
 
 ## Refs
 
