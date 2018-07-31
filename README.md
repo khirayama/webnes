@@ -2,15 +2,23 @@
 
 ## Note
 
+// Functions
+- [ ] parse
+
+// Constants
+- [ ] dict
+- [ ] colors
+
+// Objects
+- [x] log
+  - [x] call
+  - [x] info
+
+// Classes
 - [ ] NES
   - [x] load
   - [x] start
   - [x] frame
-- [ ] dict
-- [ ] parse
-- [x] log
-  - [x] call
-  - [x] info
 - [ ] Keypad
 - [ ] Ram
   - [ ] write
@@ -31,14 +39,20 @@
   - [x] render
   - [x] renderBackground
   - [x] renderSprites
-  - [ ] renderTile
+  - [x] renderTile
   - [ ] renderSprite
 - [x] NesDebugger
   - [x] setup
   - [x] displayDisassembled
 
+// Interfaces
 - [ ] IPPUConfig
 - [ ] IRenderingData
+- [ ] ITile
+
+// Types
+- [x] Sprite
+- [x] PaletteRam
 
 /^(?!.*(constructor|load)).*$/
 

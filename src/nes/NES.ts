@@ -99,7 +99,7 @@ class Ppu {
     return {
       background: 1,
       sprites: [],
-      palette: 1,
+      palette: new Uint8Array(128),
     };
   }
 }
