@@ -3,7 +3,7 @@ import { logger } from 'logger';
 
 export interface IRenderingData {
   background: any;
-  sprites: any;
+  sprites: any[];
   palette: any;
 }
 
@@ -26,12 +26,11 @@ export class CanvasRenderer {
 
   public render(data: IRenderingData): void {
     logger.call('canvasRenderer.render');
-    const { background, sprites, palette } = data;
-    if (background) {
-      this.renderBackground(background, palette);
+    if (data.background) {
+      this.renderBackground(data.background, data.palette);
     }
-    if (sprites) {
-      this.renderSprites(sprites, palette);
+    if (data.sprites) {
+      this.renderSprites(data.sprites, data.palette);
     }
     this.ctx.putImageData(this.image, 0, 0);
     logger.callEnd();

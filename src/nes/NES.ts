@@ -98,7 +98,7 @@ class Ppu {
 
     return {
       background: 1,
-      sprites: 1,
+      sprites: [],
       palette: 1,
     };
   }
