@@ -54,7 +54,6 @@ export class CanvasRenderer {
         this.renderSprite(sprite, palette);
       }
     }
-    // TODO
     logger.callEnd();
   }
 
