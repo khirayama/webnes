@@ -40,7 +40,8 @@
   - [x] renderBackground
   - [x] renderSprites
   - [x] renderTile
-  - [ ] renderSprite
+  - [x] renderSprite
+  - [ ] shouldPixelHide
 - [x] NesDebugger
   - [x] setup
   - [x] displayDisassembled
