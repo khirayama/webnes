@@ -48,7 +48,8 @@
 // Interfaces
 - [ ] IPPUConfig
 - [ ] IRenderingData
-- [ ] ITile
+- [x] ITile
+- [x] ISpriteWithAttribute
 
 // Types
 - [x] Sprite
