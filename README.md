@@ -7,7 +7,7 @@
 
 // Constants
 - [ ] dict
-- [ ] colors
+- [x] colors
 
 // Objects
 - [x] log
