@@ -41,7 +41,7 @@
   - [x] renderSprites
   - [x] renderTile
   - [x] renderSprite
-  - [ ] shouldPixelHide
+  - [x] shouldPixelHide
 - [x] NesDebugger
   - [x] setup
   - [x] displayDisassembled

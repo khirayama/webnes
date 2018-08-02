@@ -129,9 +129,17 @@ export class CanvasRenderer {
 
   private shouldPixelHide(x: number, y: number): boolean {
     logger.call('canvasRenderer.shouldPixelHide');
-    // TODO
+    const tileX: number = ~~(x / 8);
+    const tileY: number = ~~(y / 8);
+    const backgroundIndex: number = tileY * 33 + tileX;
+    const sprite: number = this.background[backgroundIndex] && this.background[backgroundIndex].sprite;
+    if (!sprite) {
+      logger.callEnd();
+
+      return true;
+    }
     logger.callEnd();
 
-    return false;
+    return !((sprite[y % 8] && sprite[y % 8][x % 8] % 4) === 0);
   }
 }
