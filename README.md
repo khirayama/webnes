@@ -35,7 +35,7 @@
 - [ ] Cpu
   - [-] run
   - [-] reset
-- [ ] CanvasRenderer
+- [x] CanvasRenderer
   - [x] render
   - [x] renderBackground
   - [x] renderSprites
