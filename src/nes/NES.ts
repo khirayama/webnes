@@ -26,74 +26,64 @@ function parse(): {
 
 class Keypad {
   constructor() {
-    logger.call('keypad.constructor');
+    logger.call('keypad.constructor TODO');
     logger.callEnd();
   }
-  // TODO
 }
 
 class Ram {
   constructor(tmp: number) {
-    logger.call('ram.constructor');
+    logger.call('ram.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 
   public write(index: number, characterROM: any): void {
-    logger.call('ram.write');
+    logger.call('ram.write TODO');
     logger.callEnd();
-    // TODO
   }
 }
 
 class Rom {
   constructor(tmp: number) {
-    logger.call('rom.constructor');
+    logger.call('rom.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 }
 
 class PpuBus {
   constructor(ram: Ram) {
-    logger.call('ppuBus.constructor');
+    logger.call('ppuBus.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 }
 
 class Interrupts {
   constructor() {
-    logger.call('interrupts.constructor');
+    logger.call('interrupts.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 }
 
 class Apu {
   constructor(interrupts: Interrupts) {
-    logger.call('apu.constructor');
+    logger.call('apu.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 
   public run(cycle: number): void {
-    logger.call('apu.run');
+    logger.call('apu.run TODO');
     logger.callEnd();
-    // TODO
   }
 }
 
 class Ppu {
   constructor(ppuBus: PpuBus, interrupts: Interrupts, ppuConfig: IPPUConfig) {
-    logger.call('ppu.constructor');
+    logger.call('ppu.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 
   public run(cycle: number): IRenderingData {
-    // TODO
-    logger.call('ppu.run');
+    logger.call('ppu.run TODO');
     logger.callEnd();
 
     return {
@@ -114,39 +104,34 @@ class Dma {
   }
 
   public runDma(): void {
-    // TODO
-    logger.call('dma.runDma');
+    logger.call('dma.runDma TODO');
     logger.callEnd();
   }
 }
 
 class CpuBus {
   constructor(ram: Ram, programROM: Rom, ppu: Ppu, keypad: Keypad, dma: Dma, apu: Apu) {
-    logger.call('cpuBus.constructor');
+    logger.call('cpuBus.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 }
 
 class Cpu {
   constructor(cpuBus: CpuBus, interrupts: Interrupts) {
-    logger.call('cpu.constructor');
+    logger.call('cpu.constructor TODO');
     logger.callEnd();
-    // TODO
   }
 
   public run(): number {
-    // TODO
-    logger.call('cpu.run');
+    logger.call('cpu.run TODO');
     logger.callEnd();
 
     return 1;
   }
 
   public reset(): void {
-    logger.call('cpi.reset');
+    logger.call('cpi.reset TODO');
     logger.callEnd();
-    // TODO
   }
 }
 
